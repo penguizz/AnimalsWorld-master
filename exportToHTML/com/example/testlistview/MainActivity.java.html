@@ -1,0 +1,87 @@
+<html>
+<head>
+<title>MainActivity.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.ln { color: #999999; font-weight: normal; font-style: normal; }
+.s0 { color: rgb(0,0,128); font-weight: bold; }
+.s1 { color: rgb(0,0,0); }
+.s2 { color: rgb(128,128,128); font-style: italic; }
+.s3 { color: rgb(0,128,0); font-weight: bold; }
+.ls0 { height: 1px; border-width: 0; color: rgb(192,192,192); background-color:rgb(192,192,192)}
+</style>
+</head>
+<BODY BGCOLOR="#ffffff">
+<TABLE CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#c0c0c0" >
+<TR><TD><CENTER>
+<FONT FACE="Arial, Helvetica" COLOR="#000000">
+MainActivity.java</FONT>
+</center></TD></TR></TABLE>
+<pre>
+<a name="l1"><span class="ln">1    </span></a><span class="s0">package </span><span class="s1">com.example.testlistview; 
+<a name="l2"><span class="ln">2    </span></a> 
+<a name="l3"><span class="ln">3    </span></a></span><span class="s0">import </span><span class="s1">android.content.Intent; 
+<a name="l4"><span class="ln">4    </span></a></span><span class="s0">import </span><span class="s1">android.os.Bundle; 
+<a name="l5"><span class="ln">5    </span></a></span><span class="s0">import </span><span class="s1">android.support.v7.app.AppCompatActivity; 
+<a name="l6"><span class="ln">6    </span></a></span><span class="s0">import </span><span class="s1">android.view.View; 
+<a name="l7"><span class="ln">7    </span></a></span><span class="s0">import </span><span class="s1">android.widget.AdapterView; 
+<a name="l8"><span class="ln">8    </span></a></span><span class="s0">import </span><span class="s1">android.widget.ListView; 
+<a name="l9"><span class="ln">9    </span></a></span><span class="s0">import </span><span class="s1">android.widget.Toast; 
+<a name="l10"><span class="ln">10   </span></a> 
+<a name="l11"><span class="ln">11   </span></a></span><span class="s0">import <a href="../../../com/example/testlistview/adapter/AnimalListAdapter.java.html">com.example.testlistview.adapter.AnimalListAdapter</a></span><span class="s1">; 
+<a name="l12"><span class="ln">12   </span></a></span><span class="s0">import <a href="../../../com/example/testlistview/model/Animal.java.html">com.example.testlistview.model.Animal</a></span><span class="s1">; 
+<a name="l13"><span class="ln">13   </span></a> 
+<a name="l14"><span class="ln">14   </span></a></span><span class="s0">import </span><span class="s1">java.util.ArrayList; 
+<a name="l15"><span class="ln">15   </span></a> 
+<a name="l16"><span class="ln">16   </span></a></span><span class="s0">public class </span><span class="s1">MainActivity </span><span class="s0">extends </span><span class="s1">AppCompatActivity { 
+<a name="l17"><span class="ln">17   </span></a> 
+<a name="l18"><span class="ln">18   </span></a>    </span><span class="s0">private </span><span class="s1">ListView mListView; 
+<a name="l19"><span class="ln">19   </span></a>    </span><span class="s2">//private ArrayList&lt;Animal&gt; mData;</span><span class="s1"> 
+<a name="l20"><span class="ln">20   </span></a> <hr class="ls0"><a name="l21"><span class="ln">21   </span></a>    @Override 
+<a name="l22"><span class="ln">22   </span></a>    </span><span class="s0">protected void </span><span class="s1">onCreate(Bundle savedInstanceState) { 
+<a name="l23"><span class="ln">23   </span></a>        </span><span class="s0">super</span><span class="s1">.onCreate(savedInstanceState); 
+<a name="l24"><span class="ln">24   </span></a>        setContentView(R.layout.activity_main); 
+<a name="l25"><span class="ln">25   </span></a> 
+<a name="l26"><span class="ln">26   </span></a>        mListView = (ListView) findViewById(R.id.list_view); 
+<a name="l27"><span class="ln">27   </span></a> 
+<a name="l28"><span class="ln">28   </span></a>        </span><span class="s0">final <a href="AnimalData.java.html">AnimalData</a> </span><span class="s1">animalData = <a href="AnimalData.java.html">AnimalData</a>.getInstance(); 
+<a name="l29"><span class="ln">29   </span></a>        animalData.animalList = </span><span class="s0">new </span><span class="s1">ArrayList&lt;&gt;(); 
+<a name="l30"><span class="ln">30   </span></a> 
+<a name="l31"><span class="ln">31   </span></a>        animalData.animalList.add(</span><span class="s0">new <a href="../../../com/example/testlistview/model/Animal.java.html">Animal</a></span><span class="s1">(</span><span class="s3">&quot;Cat&quot;</span><span class="s1">, </span><span class="s3">&quot;แมว&quot;</span><span class="s1">, R.drawable.cat, getString(R.string.details_cat))); 
+<a name="l32"><span class="ln">32   </span></a>        animalData.animalList.add(</span><span class="s0">new <a href="../../../com/example/testlistview/model/Animal.java.html">Animal</a></span><span class="s1">(</span><span class="s3">&quot;Dog&quot;</span><span class="s1">, </span><span class="s3">&quot;หมา&quot;</span><span class="s1">, R.drawable.dog, getString(R.string.details_dog))); 
+<a name="l33"><span class="ln">33   </span></a>        animalData.animalList.add(</span><span class="s0">new <a href="../../../com/example/testlistview/model/Animal.java.html">Animal</a></span><span class="s1">(</span><span class="s3">&quot;Dolphin&quot;</span><span class="s1">, </span><span class="s3">&quot;โลมา&quot;</span><span class="s1">, R.drawable.dolphin, getString(R.string.details_dolphin))); 
+<a name="l34"><span class="ln">34   </span></a>        animalData.animalList.add(</span><span class="s0">new <a href="../../../com/example/testlistview/model/Animal.java.html">Animal</a></span><span class="s1">(</span><span class="s3">&quot;Koala&quot;</span><span class="s1">, </span><span class="s3">&quot;โคอาลา&quot;</span><span class="s1">, R.drawable.koala, getString(R.string.details_koala))); 
+<a name="l35"><span class="ln">35   </span></a>        animalData.animalList.add(</span><span class="s0">new <a href="../../../com/example/testlistview/model/Animal.java.html">Animal</a></span><span class="s1">(</span><span class="s3">&quot;Owl&quot;</span><span class="s1">, </span><span class="s3">&quot;นกฮูก&quot;</span><span class="s1">, R.drawable.owl, getString(R.string.details_owl))); 
+<a name="l36"><span class="ln">36   </span></a>        animalData.animalList.add(</span><span class="s0">new <a href="../../../com/example/testlistview/model/Animal.java.html">Animal</a></span><span class="s1">(</span><span class="s3">&quot;Rabbit&quot;</span><span class="s1">, </span><span class="s3">&quot;กระต่าย&quot;</span><span class="s1">, R.drawable.rabbit, getString(R.string.details_rabbit))); 
+<a name="l37"><span class="ln">37   </span></a>        animalData.animalList.add(</span><span class="s0">new <a href="../../../com/example/testlistview/model/Animal.java.html">Animal</a></span><span class="s1">(</span><span class="s3">&quot;Penguin&quot;</span><span class="s1">, </span><span class="s3">&quot;เพนกวิน&quot;</span><span class="s1">, R.drawable.penguin, getString(R.string.details_penguin))); 
+<a name="l38"><span class="ln">38   </span></a>        animalData.animalList.add(</span><span class="s0">new <a href="../../../com/example/testlistview/model/Animal.java.html">Animal</a></span><span class="s1">(</span><span class="s3">&quot;Tiger&quot;</span><span class="s1">, </span><span class="s3">&quot;เสือ&quot;</span><span class="s1">, R.drawable.tiger, getString(R.string.details_tiger))); 
+<a name="l39"><span class="ln">39   </span></a>        animalData.animalList.add(</span><span class="s0">new <a href="../../../com/example/testlistview/model/Animal.java.html">Animal</a></span><span class="s1">(</span><span class="s3">&quot;Pig&quot;</span><span class="s1">, </span><span class="s3">&quot;หมู&quot;</span><span class="s1">, R.drawable.pig, getString(R.string.details_pig))); 
+<a name="l40"><span class="ln">40   </span></a>        animalData.animalList.add(</span><span class="s0">new <a href="../../../com/example/testlistview/model/Animal.java.html">Animal</a></span><span class="s1">(</span><span class="s3">&quot;Lion&quot;</span><span class="s1">, </span><span class="s3">&quot;สิงโต&quot;</span><span class="s1">, R.drawable.lion, getString(R.string.details_lion))); 
+<a name="l41"><span class="ln">41   </span></a> 
+<a name="l42"><span class="ln">42   </span></a>        <a href="../../../com/example/testlistview/adapter/AnimalListAdapter.java.html">AnimalListAdapter</a> adapter = </span><span class="s0">new <a href="../../../com/example/testlistview/adapter/AnimalListAdapter.java.html">AnimalListAdapter</a></span><span class="s1">( 
+<a name="l43"><span class="ln">43   </span></a>                </span><span class="s0">this</span><span class="s1">, 
+<a name="l44"><span class="ln">44   </span></a>                R.layout.item, 
+<a name="l45"><span class="ln">45   </span></a>                animalData.animalList 
+<a name="l46"><span class="ln">46   </span></a>        ); 
+<a name="l47"><span class="ln">47   </span></a> 
+<a name="l48"><span class="ln">48   </span></a>        mListView.setAdapter(adapter); 
+<a name="l49"><span class="ln">49   </span></a> 
+<a name="l50"><span class="ln">50   </span></a>        mListView.setOnItemClickListener(</span><span class="s0">new </span><span class="s1">AdapterView.OnItemClickListener() { 
+<a name="l51"><span class="ln">51   </span></a>            @Override 
+<a name="l52"><span class="ln">52   </span></a>            </span><span class="s0">public void </span><span class="s1">onItemClick(AdapterView&lt;?&gt; adapterView, View view, </span><span class="s0">int </span><span class="s1">i, </span><span class="s0">long </span><span class="s1">l) { 
+<a name="l53"><span class="ln">53   </span></a>                <a href="../../../com/example/testlistview/model/Animal.java.html">Animal</a> animal = animalData.animalList.get(i); 
+<a name="l54"><span class="ln">54   </span></a>                Toast.makeText(MainActivity.</span><span class="s0">this</span><span class="s1">, animal.englishName, Toast.LENGTH_SHORT).show(); 
+<a name="l55"><span class="ln">55   </span></a> 
+<a name="l56"><span class="ln">56   </span></a>                Intent intent = </span><span class="s0">new </span><span class="s1">Intent(MainActivity.</span><span class="s0">this</span><span class="s1">, <a href="AnimalDetailsActivity.java.html">AnimalDetailsActivity</a>.</span><span class="s0">class</span><span class="s1">); 
+<a name="l57"><span class="ln">57   </span></a>                </span><span class="s2">//intent.putExtra(&quot;englishName&quot;, animal.englishName);</span><span class="s1"> 
+<a name="l58"><span class="ln">58   </span></a>                </span><span class="s2">//intent.putExtra(&quot;picture&quot;, animal.picture);</span><span class="s1"> 
+<a name="l59"><span class="ln">59   </span></a>                intent.putExtra(</span><span class="s3">&quot;position&quot;</span><span class="s1">, i); 
+<a name="l60"><span class="ln">60   </span></a>                startActivity(intent); 
+<a name="l61"><span class="ln">61   </span></a>            } 
+<a name="l62"><span class="ln">62   </span></a>        }); 
+<a name="l63"><span class="ln">63   </span></a> 
+<a name="l64"><span class="ln">64   </span></a>    } 
+<a name="l65"><span class="ln">65   </span></a>} 
+<a name="l66"><span class="ln">66   </span></a></span></pre>
+</body>
+</html>
